@@ -25,6 +25,7 @@ familiars = {'Fox': {'damage': (10, 15), },
              'Yokai': {'damage': (20, 25), },
              'Undead': {'damage': (25, 30), }
              }
+
 def new_game_state():
     return {
     "hp":  100,
@@ -66,6 +67,7 @@ def greetings():
      ====================
      """)
     menu(state)
+    
 def menu(state):
     while True:
         print(f"\n---HP: {state['hp']} XP: {state['xp']} COINS: {state['coins']}---")
@@ -118,6 +120,7 @@ def shop(state):
     else:
         input("Please choose an item from the list.")
     return state
+    
 def upgrade(state):
     weapon_to_upgrade = input(f"Please choose a weapon to upgrade.(Your Coins: {state['coins']}) {list(weapons.keys())}: ")
     if weapon_to_upgrade in weapons:
@@ -131,6 +134,7 @@ def upgrade(state):
         else:
             input("Maybe next time")
     return state
+    
 def familiar(state):
     if state["familiar_state"]:
         input("You already have a familiar.")
@@ -149,7 +153,9 @@ def familiar(state):
     else:
         input("Maybe next time.")
     return state
+    
 def fight(state):
+    
     while state["hp"] > 0 and state["xp"] < 100 and any(value > 0 for value in state["weapon_ammo"].values()):
 
         enemy = random.choice(list(enemies.keys()))
