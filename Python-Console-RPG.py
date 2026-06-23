@@ -29,7 +29,7 @@ def new_game_state():
     return {
     "hp":  100,
     "xp" : 0,
-    "coins":  100,
+    "coins":  10,
     "weapon_ammo" :    {'pistol': 3,
                        'mac10': 3,
                        'm16': 2,
